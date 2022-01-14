@@ -11,12 +11,16 @@
 /*                                                                          */
 /****************************************************************************/
  
-#define A      (0)
-#define B      (3)
-#define C      (6)
-#define D      (9)
-#define OUTPUT (1)
-#define INPUT  (0)
+#define A                     (0)
+#define B                     (3)
+#define C                     (6)
+#define D                     (9)
+#define OUTPUT                (1)
+#define INPUT                 (0)
+#define HIGHT                 (1)
+#define LOW                   (0)
+#define LEAST_SIGNIFICANT_BIT (0)
+#define MOST_SIGNIFICANT_BIT  (7)
 
 /****************************************************************************/
 /*                                                                          */
@@ -24,11 +28,11 @@
 /*                                                                          */
 /****************************************************************************/
 
-uint8_t GPIO_set(uint8_t port, uint8_t bit);
-uint8_t GPIO_toggle (uint8_t port, uint8_t bit);
-uint8_t GPIO_dir(uint8_t port, uint8_t bit, uint8_t mode);
-uint8_t GPIO_clear(uint8_t port, uint8_t bit);
-uint8_t GPIO_read(uint8_t port, uint8_t bit);
+uint8_t GPIO_set(uint8_t u8_port, uint8_t u8_bit);
+uint8_t GPIO_toggle(uint8_t u8_port, uint8_t u8_bit);
+uint8_t GPIO_dir(uint8_t u8_port, uint8_t u8_bit, uint8_t u8_mode);
+uint8_t GPIO_clear(uint8_t u8_port, uint8_t u8_bit);
+uint8_t GPIO_read(uint8_t u8_port, uint8_t u8_bit);
 
 
 #endif 

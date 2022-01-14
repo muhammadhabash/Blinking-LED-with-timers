@@ -4,6 +4,18 @@
 #include "BIT_manipulation.h"
 #include "ATMEGA32.h"
 
+
+
+#define PERIODIC_TIME_MS (0.001)                                             //For TIMER0
+#define 8_BITS           (255)
+/****************************************************************************/
+/*                                                                          */
+/*                         Global Interrupt Bit                             */
+/*                                                                          */
+/****************************************************************************/
+
+#define I     (7)
+
 /****************************************************************************/
 /*                                                                          */
 /*                        TIMER0 Control Register Bits                      */
@@ -78,7 +90,7 @@ void TIMER0_start  (uint16_t u16_prescale);                                  //T
 void TIMER0_stop   (void);                                                   //This function halts timer 0
 void TIMER2_start  (uint16_t u16_prescale);                                  //This function ignites timer 1 with a given prescaler
 void TIMER2_stop   (void);                                                   //This function halts timer 2
-void TIMER0_msdelay(uint16_t mseconds);                                      //This function is used to provide hardware delay in micro seconds
+void TIMER0_msdelay(uint16_t u16_mseconds);                                  //This function is used to provide hardware delay in micro seconds
 
 
 #endif

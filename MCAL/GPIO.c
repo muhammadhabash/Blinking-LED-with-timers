@@ -2,15 +2,15 @@
 
 errorCodes_t gpioErrors;
 
-uint8_t GPIO_set(uint8_t port, uint8_t bit)
+uint8_t GPIO_set(uint8_t u8_port, uint8_t u8_bit)
 {
-	uint8_t* reg;
-	if (port >= A && port <= D)
+	uint8_t* u8_reg;
+	if (u8_port >= A && u8_port <= D)
 	{
-		reg = (uint8_t*)(GPIO_DATA_R - (port - A));
-		if ( bit >= 0 && bit <= 7 )
+		u8_reg = (uint8_t*)(GPIO_DATA_R - (u8_port - A));
+		if ( u8_bit >= LEAST_SIGNIFICANT_BIT && u8_bit <= MOST_SIGNIFICANT_BIT )
 		{
-			GPIO_SET(reg,bit);
+			GPIO_SET(u8_reg,u8_bit);
 		}
 		else 
 		{
@@ -23,15 +23,15 @@ uint8_t GPIO_set(uint8_t port, uint8_t bit)
 	}
 }
 
-uint8_t GPIO_toggle (uint8_t port, uint8_t bit)
+uint8_t GPIO_toggle (uint8_t u8_port, uint8_t u8_bit)
 {
-	uint8_t* reg;
-	if (port >= A && port <= D)
+	uint8_t* u8_reg;
+	if (u8_port >= A && u8_port <= D)
 	{
-		reg = (uint8_t*)(GPIO_DATA_R - (port - A));
-		if ( bit >= 0 && bit <= 7 )
+		u8_reg = (uint8_t*)(GPIO_DATA_R - (u8_port - A));
+		if ( u8_bit >= LEAST_SIGNIFICANT_BIT && u8_bit <= MOST_SIGNIFICANT_BIT )
 		{
-			GPIO_TOGGLE(reg,bit);
+			GPIO_TOGGLE(u8_reg,u8_bit);
 		}
 		else
 		{
@@ -44,21 +44,21 @@ uint8_t GPIO_toggle (uint8_t port, uint8_t bit)
 	}
 }
 
-uint8_t GPIO_dir(uint8_t port, uint8_t bit, uint8_t mode)
+uint8_t GPIO_dir(uint8_t u8_port, uint8_t u8_bit, uint8_t u8_mode)
 {
-	uint8_t* reg;
-	if (port >= A && port <= D)
+	uint8_t* u8_reg;
+	if (u8_port >= A && u8_port <= D)
 	{
-		reg = (uint8_t*)(GPIO_DIR_R - (port -A));
-		if ( bit >= 0 && bit <= 7 )
+		u8_reg = (uint8_t*)(GPIO_DIR_R - (u8_port -A));
+		if ( u8_bit >= LEAST_SIGNIFICANT_BIT && u8_bit <= MOST_SIGNIFICANT_BIT )
 		{
-			if (OUTPUT == mode)
+			if (OUTPUT == u8_mode)
 			{
-				GPIO_SET(reg,bit);	
+				GPIO_SET(u8_reg,u8_bit);	
 			}
-			else if (INPUT == mode)
+			else if (INPUT == u8_mode)
 			{
-				GPIO_CLEAR(reg,bit);
+				GPIO_CLEAR(u8_reg,u8_bit);
 			}
 			else
 			{
@@ -77,15 +77,15 @@ uint8_t GPIO_dir(uint8_t port, uint8_t bit, uint8_t mode)
 	
 }
 
-uint8_t GPIO_clear(uint8_t port, uint8_t bit)
+uint8_t GPIO_clear(uint8_t u8_port, uint8_t u8_bit)
 {
-	uint8_t* reg;
-	if (port >= A && port <= D)
+	uint8_t* u8_reg;
+	if (u8_port >= A && u8_port <= D)
 	{
-		reg = (uint8_t*)(GPIO_DATA_R - (port - A));
-		if ( bit >= 0 && bit <= 7 )
+		u8_reg = (uint8_t*)(GPIO_DATA_R - (u8_port - A));
+		if ( u8_bit >= LEAST_SIGNIFICANT_BIT && u8_bit <= MOST_SIGNIFICANT_BIT )
 		{
-			GPIO_CLEAR(reg, bit);
+			GPIO_CLEAR(u8_reg, u8_bit);
 		}
 		else 
 		{
@@ -98,19 +98,19 @@ uint8_t GPIO_clear(uint8_t port, uint8_t bit)
 	}
 }
 
-uint8_t GPIO_read(uint8_t port, uint8_t bit)
+uint8_t GPIO_read(uint8_t u8_port, uint8_t u8_bit)
 {
-	uint8_t* reg;
-	if (port >= A && port <= D)
+	uint8_t* u8_reg;
+	if (u8_port >= A && u8_port <= D)
 	{
-		reg = (uint8_t*)(GPIO_BITS_R - (port - A));
-		if (GPIO_IS_SET(reg,bit))
+		u8_reg = (uint8_t*)(GPIO_BITS_R - (u8_port - A));
+		if (GPIO_IS_SET(u8_reg,u8_bit))
 		{
-			return 1;
+			return HIGH;
 		}
 		else 
 		{
-			return WRONG_PIN;
+			return LOW;
 		}
 	}
 	else
