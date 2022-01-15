@@ -1,8 +1,8 @@
 #ifndef TIMERS_H_
 #define TIMERS_H_
 
-#include "BIT_manipulation.h"
-#include "ATMEGA32.h"
+#include "../BIT_manipulation.h"
+#include "../ATMEGA32.h"
 
 
 
