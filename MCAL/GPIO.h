@@ -1,9 +1,9 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-#include "ATMEGA32.h"
-#include "BIT_manipulation.h"
-#include "ERROR_states.h"
+#include "../ATMEGA32.h"
+#include "../BIT_manipulation.h"
+#include "../ERROR_states.h"
 
 /****************************************************************************/
 /*                                                                          */
